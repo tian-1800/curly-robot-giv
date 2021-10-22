@@ -1,0 +1,107 @@
+.fp-header {
+  justify-content: space-between;
+  padding: 0 1rem;
+  position: absolute;
+  z-index: 10;
+  height: 2.625rem;
+  background: rgba(229, 229, 229, 0.33);
+  width: 100%;
+
+  &__font {
+    gap: 0.75rem;
+
+    &-family {
+      background-color: $background_white;
+      width: 6.25rem;
+      border-radius: 0.3125rem;
+      border: 0.5px solid $background_gray;
+      height: 1.5rem;
+      padding-left: 0.5625rem;
+    }
+  }
+
+  &__font-style {
+    gap: 0.75rem;
+    padding-right: 0 0.75rem;
+
+    &-item {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__alignment {
+    gap: 0.3125rem;
+    padding: 0 0.75rem;
+
+    &-item {
+      color: $text_dark;
+      width: 1.25rem;
+    }
+  }
+
+  &__user {
+    gap: 0.75rem;
+    color: $text_light;
+
+    &-item {
+      width: 1.5rem;
+    }
+
+    &-edit {
+      gap: 0.3125rem;
+
+      &-icon {
+        height: 1.25rem;
+      }
+
+      &-text {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+.font-size {
+  width: 6.25rem;
+
+  &__btn {
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    background-color: $background_white;
+    color: $text_light;
+    border: 0.5px solid $background_gray;
+
+    &-dec {
+      @extend .font-size__btn;
+      border-radius: 0.3125rem 0 0 0.3125rem;
+    }
+
+    &-inc {
+      @extend .font-size__btn;
+      border-radius: 0 0.3125rem 0.3125rem 0;
+    }
+  }
+
+  &__input {
+    height: 1.5rem;
+    width: 2rem;
+    background-color: $background_white;
+    border: 0.5px solid $background_gray;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+  }
+}
+
+.form-paper {
+  position: relative;
+  width: 603px;
+  background-color: $background_white;
+
+  &__header-background {
+    height: 5.5625rem;
+    background: linear-gradient(269.84deg, #59c4e5 31.53%, #afd8bd 97.95%);
+    border-radius: 10px;
+    transform: rotate(-180deg);
+  }
+}

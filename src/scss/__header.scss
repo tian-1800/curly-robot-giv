@@ -1,13 +1,11 @@
 .header {
-  color: $text-dark;
   display: flex;
+  background-color: $background_white;
   justify-content: space-between;
   height: 108px;
 
   &__left {
-    display: flex;
     gap: 40px;
-    align-items: center;
 
     &-menu {
       font-size: 24px;
@@ -15,13 +13,9 @@
   }
 
   &__right {
-    display: flex;
     gap: 40px;
-    align-items: center;
 
     &-item {
-      display: flex;
-      align-items: center;
       gap: 12px;
     }
   }
