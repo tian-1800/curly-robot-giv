@@ -7,8 +7,11 @@
 body {
   font-family: "Nunito", sans-serif;
   color: $text-dark;
-  padding: 0 79px 0 31px;
   background-color: #cca;
+}
+
+main {
+  padding-right: 79px;
 }
 
 input::-webkit-outer-spin-button,
@@ -24,8 +27,9 @@ li {
   list-style: none;
 }
 
-.main {
+.form-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .flex-center {

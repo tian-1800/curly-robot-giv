@@ -1,0 +1,70 @@
+.text-dropdown {
+  background-color: #fafafa;
+  height: 2rem;
+  border-radius: 0.3125rem;
+  border: solid 1px $background_gray;
+  max-width: 15.625rem;
+  padding: 0 0.5625rem 0 0.75rem;
+
+  &.row {
+    flex-direction: row;
+  }
+}
+
+.input-group {
+  width: 100%;
+
+  &__text {
+    font-size: 0.625rem;
+    color: $yellow;
+    flex-grow: 1;
+    padding-left: 0.9375rem;
+  }
+
+  &__button {
+    border: none;
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
+.upload {
+  background-color: #fafafa;
+  height: 4.0625rem;
+  max-width: 15.625rem;
+  padding: 0 0.4375rem 0 0.75rem;
+  border-radius: 0.3125rem;
+  border: solid 1px $background_gray;
+  justify-content: space-between;
+
+  &__text {
+    padding-left: 0.75rem;
+    flex-grow: 1;
+    font-size: 12px;
+  }
+
+  &__button {
+    border: none;
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
+.title {
+  background-color: #fafafa;
+  height: 4.0625rem;
+  max-width: 15.625rem;
+  border-radius: 0.3125rem;
+  border: solid 1px $background_gray;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+
+  &__flex {
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+}

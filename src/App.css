@@ -7,8 +7,11 @@
 body {
   font-family: "Nunito", sans-serif;
   color: #383838;
-  padding: 0 79px 0 31px;
   background-color: #cca;
+}
+
+main {
+  padding-right: 79px;
 }
 
 input::-webkit-outer-spin-button,
@@ -25,8 +28,9 @@ li {
   list-style: none;
 }
 
-.main {
+.form-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .flex-center {
@@ -39,6 +43,7 @@ li {
   background-color: #fff;
   justify-content: space-between;
   height: 108px;
+  padding: 0 79px 0 31px;
 }
 .header__left {
   gap: 40px;
@@ -48,6 +53,7 @@ li {
 }
 .header__right {
   gap: 40px;
+  font-size: 15px;
 }
 .header__right-item {
   gap: 12px;
@@ -56,11 +62,11 @@ li {
 .fp-header {
   justify-content: space-between;
   padding: 0 1rem;
-  position: absolute;
-  z-index: 10;
   height: 2.625rem;
   background: rgba(229, 229, 229, 0.33);
   width: 100%;
+  position: relative;
+  z-index: 10;
 }
 .fp-header__font {
   gap: 0.75rem;
@@ -135,12 +141,54 @@ li {
   position: relative;
   width: 603px;
   background-color: #fff;
+  border-radius: 0.625rem;
 }
 .form-paper__header-background {
   height: 5.5625rem;
+  width: 100%;
   background: linear-gradient(269.84deg, #59c4e5 31.53%, #afd8bd 97.95%);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   transform: rotate(-180deg);
+  position: absolute;
+  top: 0;
+}
+.form-paper__top {
+  position: relative;
+}
+.form-paper__separator {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  border: none;
+  background: inherit;
+  overflow: hidden;
+}
+.form-paper__separator-button {
+  position: relative;
+  z-index: 10;
+  font-size: 1.6rem;
+  margin: 0 auto;
+  width: 2rem;
+  height: 2rem;
+  color: #898b96;
+  background: inherit;
+  border: solid 1px #e5e5e5;
+  border-radius: 50%;
+  justify-content: center;
+}
+.form-paper__separator-button::before, .form-paper__separator-button::after {
+  height: 0;
+  content: "aaskjfhalsdkfjhasldfkjhaskflsdkjfhalskdjfhalskdjfhakdsl";
+  color: rgba(229, 229, 229, 0);
+  border-bottom: 1px solid #e5e5e5;
+  position: absolute;
+  bottom: 50%;
+}
+.form-paper__separator-button::before {
+  left: 2rem;
+}
+.form-paper__separator-button::after {
+  right: 2rem;
 }
 
 .right-sidebar {
@@ -150,8 +198,6 @@ li {
   border-radius: 5px;
 }
 .right-sidebar__title {
-  display: flex;
-  align-items: center;
   gap: 15px;
   font-weight: 700;
 }
@@ -159,11 +205,21 @@ li {
   color: #898b96;
   border-radius: 50%;
 }
+.right-sidebar__menu-button {
+  border: none;
+}
+.right-sidebar__menu-button > * {
+  font-size: 24px;
+}
 .right-sidebar__list {
   padding: 15px 0;
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.right-sidebar__list--hidden {
+  height: 0;
+  overflow: hidden;
 }
 .right-sidebar__subtitle {
   display: flex;
@@ -180,8 +236,6 @@ li {
 .right-sidebar__item {
   font-size: 13px;
   line-height: 16px;
-  display: flex;
-  align-items: center;
   gap: 12px;
   background: #fafbfd;
   border: 1px solid #e5e5e5;
@@ -189,4 +243,78 @@ li {
   width: 233px;
   height: 32px;
   padding: 0 10px;
+}
+.right-sidebar__item-text {
+  flex-grow: 1;
+}
+.right-sidebar__item-button {
+  background-color: inherit;
+  border: none;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.text-dropdown {
+  background-color: #fafafa;
+  height: 2rem;
+  border-radius: 0.3125rem;
+  border: solid 1px #e5e5e5;
+  max-width: 15.625rem;
+  padding: 0 0.5625rem 0 0.75rem;
+}
+.text-dropdown.row {
+  flex-direction: row;
+}
+
+.input-group {
+  width: 100%;
+}
+.input-group__text {
+  font-size: 0.625rem;
+  color: #f6da2b;
+  flex-grow: 1;
+  padding-left: 0.9375rem;
+}
+.input-group__button {
+  border: none;
+  color: inherit;
+  background-color: inherit;
+}
+
+.upload {
+  background-color: #fafafa;
+  height: 4.0625rem;
+  max-width: 15.625rem;
+  padding: 0 0.4375rem 0 0.75rem;
+  border-radius: 0.3125rem;
+  border: solid 1px #e5e5e5;
+  justify-content: space-between;
+}
+.upload__text {
+  padding-left: 0.75rem;
+  flex-grow: 1;
+  font-size: 12px;
+}
+.upload__button {
+  border: none;
+  color: inherit;
+  background-color: inherit;
+}
+
+.title {
+  background-color: #fafafa;
+  height: 4.0625rem;
+  max-width: 15.625rem;
+  border-radius: 0.3125rem;
+  border: solid 1px #e5e5e5;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+}
+.title__flex {
+  margin: 0 auto;
+}
+.title__title {
+  font-weight: 700;
 }/*# sourceMappingURL=App.css.map */

@@ -3,6 +3,7 @@
   background-color: $background_white;
   justify-content: space-between;
   height: 108px;
+  padding: 0 79px 0 31px;
 
   &__left {
     gap: 40px;
@@ -14,6 +15,7 @@
 
   &__right {
     gap: 40px;
+    font-size: 15px;
 
     &-item {
       gap: 12px;
