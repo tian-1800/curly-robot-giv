@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import { BsPlus } from "react-icons/bs";
-
-import ShortText from "../user_components/ShortText";
+import SwitchComponent from "../user_components/switch/switchComponent";
 import ImageUpload from "../user_components/ImageUpload";
 import Title from "../user_components/Title";
 import Header from "./components/Header";
-// import EditField from "./components/EditField";
 
 const FormPaper = () => {
   const [fontSize, setFontSize] = useState(12);
+  const [sections, setSections] = useState([[{ fieldName: "short-text" }]]);
 
   const dropHandler = (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    const id = e.dataTransfer.getData("text/plain");
+    const newSection = [{ fieldName: id }];
+    setSections([...sections, newSection]);
+  };
+
+  const dragOverHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
   };
 
   return (
@@ -31,12 +39,21 @@ const FormPaper = () => {
             <BsPlus />
           </button>
         </div>
-        <section className="form-paper__section">
-          <ShortText title="Driver Name" />
-        </section>
-        <div className="form-paper__dropzone" onDrop={dropHandler}>
+        {sections.map((section, i) => (
+          <section className="form-paper__section" id={`section${i}`}>
+            {section.map((field) => (
+              <SwitchComponent id={field.fieldName} deployed />
+            ))}
+          </section>
+        ))}
+
+        <section
+          className="form-paper__dropzone"
+          onDrop={dropHandler}
+          onDragOver={dragOverHandler}
+        >
           <p className="form-paper__dropzone-text"> Drop here to add section</p>
-        </div>
+        </section>
         {/* <EditField header={"Text"} title={"Driver Name"} type={"short-text"} /> */}
       </main>
     </div>

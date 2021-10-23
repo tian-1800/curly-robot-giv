@@ -11,13 +11,13 @@ const RightSidebar = () => {
 
   const dragStartHandler = (e) => {
     // e.stopImmediatePropagation();
+    console.log("drag start");
     e.dataTransfer.setData("text/plain", draggedId);
   };
   const dragEndHandler = () => {
+    console.log("drag end");
     setIsDragging(false);
   };
-
-  // const DraggedEl = switchComponent(draggedId);
 
   return (
     <div className="right-sidebar">
@@ -42,6 +42,7 @@ const RightSidebar = () => {
             : "right-sidebar__dragged-component--invisible"
         }
         draggable
+        onDrag={() => {}}
         onDragStart={dragStartHandler}
         onDragEnd={dragEndHandler}
       >

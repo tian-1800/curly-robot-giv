@@ -6,13 +6,13 @@ import ShortText from "../ShortText";
 import Table from "../Table";
 import VideoUpload from "../VideoUpload";
 
-const SwitchComponent = ({ id }) => {
-  if (id === "short-text") return <ShortText />;
-  if (id === "long-text") return <LongText />;
-  if (id === "table") return <Table />;
-  if (id === "drop-down") return <Dropdown />;
-  if (id === "img-upload") return <ImageUpload />;
-  if (id === "vid-upload") return <VideoUpload />;
+const SwitchComponent = ({ id, deployed }) => {
+  if (id === "short-text") return <ShortText deployed={deployed} />;
+  if (id === "long-text") return <LongText deployed={deployed} />;
+  if (id === "table") return <Table deployed={deployed} />;
+  if (id === "drop-down") return <Dropdown deployed={deployed} />;
+  if (id === "img-upload") return <ImageUpload deployed={deployed} />;
+  if (id === "vid-upload") return <VideoUpload deployed={deployed} />;
   return null;
 };
 

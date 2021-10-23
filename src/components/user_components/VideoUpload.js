@@ -1,6 +1,8 @@
 import React from "react";
 import Upload from "./Upload";
 
-const VideoUpload = () => <Upload type={"Video"} />;
+const VideoUpload = ({ dropped }) => (
+  <Upload type={"Video"} dropped={dropped} />
+);
 
 export default VideoUpload;
