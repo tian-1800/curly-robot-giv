@@ -1,12 +1,12 @@
 import React from "react";
 
-const Title = () => {
+const Title = ({ title, subtitle }) => {
   console.log("hi");
   return (
     <div className="title flex-center">
       <div className="title__flex">
-        <h4 className="title__title">Premier Transportation</h4>
-        <p className="title__text">Charter Log</p>
+        <h4 className="title__title">{title}</h4>
+        <p className="title__text">{subtitle}</p>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import ShortText from "../user_components/ShortText";
 import ImageUpload from "../user_components/ImageUpload";
 import Title from "../user_components/Title";
 import Header from "./components/Header";
+// import EditField from "./components/EditField";
 
 const FormPaper = () => {
   const [fontSize, setFontSize] = useState(12);
@@ -20,7 +21,7 @@ const FormPaper = () => {
       <main className="form-paper__main">
         <section className="form-paper__top flex-center">
           <ImageUpload />
-          <Title />
+          <Title title="Premier Transportation" subtitle="Charter Log" />
         </section>
         <div className="form-paper__separator">
           <button
@@ -30,10 +31,13 @@ const FormPaper = () => {
             <BsPlus />
           </button>
         </div>
+        <section className="form-paper__section">
+          <ShortText title="Driver Name" />
+        </section>
         <div className="form-paper__dropzone" onDrop={dropHandler}>
-          Drop here to add section
+          <p className="form-paper__dropzone-text"> Drop here to add section</p>
         </div>
-        <ShortText />
+        {/* <EditField header={"Text"} title={"Driver Name"} type={"short-text"} /> */}
       </main>
     </div>
   );

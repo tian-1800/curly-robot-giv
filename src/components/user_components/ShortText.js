@@ -2,10 +2,10 @@ import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import shortLongText from "./icons/short_long_text.svg";
 
-const ShortText = ({ properties }) => {
-  const { title, style } = properties || { title: null, style: "column" };
+const ShortText = ({ title, style }) => {
+  // const { title, style } = properties || { title: null, style: "column" };
   let container = "text-dropdown flex-center";
-  container += style === "column" ? " column" : " row";
+  container += style === "row" ? " row" : " column";
 
   return (
     <div className={container}>

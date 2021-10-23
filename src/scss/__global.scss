@@ -10,10 +10,6 @@ body {
   background-color: #cca;
 }
 
-main {
-  padding-right: 79px;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -25,6 +21,10 @@ input[type="number"] {
 
 li {
   list-style: none;
+}
+
+.main-app {
+  padding-right: 79px;
 }
 
 .form-container {

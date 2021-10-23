@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main>
+      <main className="main-app">
         {/* <LeftNav />
         <Pages /> */}
         <FormContainer />

@@ -1,18 +1,26 @@
 .text-dropdown {
-  background-color: #fafafa;
-  height: 2rem;
-  border-radius: 0.3125rem;
-  border: solid 1px $background_gray;
   max-width: 15.625rem;
-  padding: 0 0.5625rem 0 0.75rem;
 
-  &.row {
-    flex-direction: row;
+  &.column {
+    flex-direction: column;
+    gap: 0.3125rem;
+    align-items: start;
+  }
+
+  &__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    // line-height: 1.1rem;
   }
 }
 
 .input-group {
   width: 100%;
+  background-color: #fafafa;
+  height: 2rem;
+  border-radius: 0.3125rem;
+  @include border_gray;
+  padding: 0 0.5625rem 0 0.75rem;
 
   &__text {
     font-size: 0.625rem;
@@ -54,11 +62,14 @@
   background-color: #fafafa;
   height: 4.0625rem;
   max-width: 15.625rem;
-  border-radius: 0.3125rem;
-  border: solid 1px $background_gray;
+  border-radius: 0.625rem;
+  @include border_gray;
   text-align: center;
+  padding: 0 0.375rem;
   font-size: 0.875rem;
   line-height: 1.1875rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px dashed $background_gray;
 
   &__flex {
     margin: 0 auto;

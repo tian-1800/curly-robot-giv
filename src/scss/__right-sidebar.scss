@@ -15,7 +15,6 @@
   }
 
   &__menu-button {
-    // background-color: inherit;
     border: none;
 
     > * {
@@ -66,6 +65,17 @@
       background-color: inherit;
       border: none;
       width: min-content;
+    }
+  }
+
+  &__dragged-component {
+    position: absolute;
+    z-index: 2;
+    opacity: 0.8;
+
+    &--invisible {
+      @extend .right-sidebar__dragged-component;
+      display: none;
     }
   }
 }

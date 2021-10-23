@@ -109,14 +109,21 @@
     top: 0;
   }
 
+  &__main {
+    padding: 1.125rem 2.25rem;
+  }
+
   &__top {
     position: relative;
+    gap: 1.125rem;
+    margin-bottom: 0.25rem;
   }
 
   &__separator {
     position: relative;
     z-index: 0;
     width: 100%;
+    padding: 1.125rem 0;
     border: none;
     background: inherit;
     overflow: hidden;
@@ -130,7 +137,7 @@
       height: 2rem;
       color: $text_light;
       background: inherit;
-      border: solid 1px $background_gray;
+      @include border_gray;
       border-radius: 50%;
       justify-content: center;
 
@@ -152,5 +159,98 @@
         right: 2rem;
       }
     }
+  }
+
+  &__section {
+    padding-bottom: 1rem;
+  }
+
+  &__dropzone {
+    max-width: 93.75rem;
+    height: 5.0625rem;
+    background: rgba(251, 239, 164, 0.3);
+    border: 1px dashed #f6da2b;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: $text_light;
+    font-size: 0.75rem;
+    position: relative;
+
+    &-text {
+      line-height: 1rem;
+      position: absolute;
+      bottom: 0.4375rem;
+      left: 1.375rem;
+    }
+  }
+}
+
+.edit-field {
+  width: 686px;
+  background-color: $background_white;
+  padding: 0 33px;
+  border: solid 1px #333;
+  border-radius: 20px;
+
+  &__header {
+    font-weight: 700;
+    line-height: 67px;
+    border-bottom: solid 0.5px $background_gray;
+  }
+
+  &__main {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__long,
+  &__short {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+  }
+
+  &__long {
+    flex-basis: 80%;
+  }
+
+  &__short {
+    flex-basis: 40%;
+  }
+
+  &__input {
+    height: 42px;
+    line-height: 42px;
+    color: $text_dark;
+    @include border_gray;
+    padding: 0 33px;
+    border-radius: 30px;
+  }
+
+  &__footer {
+    height: 78px;
+    justify-content: right;
+  }
+
+  &__submit-button {
+    height: 39px;
+    width: 111px;
+    background: radial-gradient(
+      121.87% 121.87% at 50% -21.87%,
+      #fbefa4 0%,
+      #f6da2b 100%
+    );
+    box-shadow: 0px 4px 4px rgba(229, 229, 229, 0.4);
+    border-radius: 5px;
+    border: none;
+    color: $text_dark;
+    gap: 10px;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
   }
 }

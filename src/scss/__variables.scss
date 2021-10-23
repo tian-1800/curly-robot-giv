@@ -4,3 +4,7 @@ $yellow: #f6da2b;
 $background_white: #fff;
 $background_gray: #e5e5e5;
 $inactive: #c4c4c4;
+
+@mixin border_gray {
+  border: solid 1px $background_gray;
+}

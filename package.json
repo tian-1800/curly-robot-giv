@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@carbon/icons-react": "^10.41.0",
     "@iconify/react": "^3.0.1",
     "akar-icons": "^1.9.0",
     "cra-template": "1.1.2",
