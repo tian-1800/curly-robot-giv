@@ -3,8 +3,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import imageUpload from "./icons/image_upload.svg";
 
 const Upload = ({ type, deployed, index, handler }) => {
-  const handleClick = () => {
-    handler(index, type);
+  const handleClick = (e) => {
+    handler(index, type, [e.clientX, e.clientY]);
   };
 
   return (

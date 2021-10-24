@@ -1,10 +1,9 @@
 import React from "react";
 import TextDropdown from "./TextDropdown";
 
-const LongText = ({ title, style, deployed, index, handler }) => (
+const LongText = ({ data, deployed, index, handler }) => (
   <TextDropdown
-    title={title}
-    style={style}
+    data={data}
     type="long-text"
     deployed={deployed}
     index={index}

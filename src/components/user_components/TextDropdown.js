@@ -2,7 +2,9 @@ import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import dummy from "./dummy/components";
 
-const TextDropdown = ({ title, style, type, deployed, index, handler }) => {
+const TextDropdown = ({ data, type, deployed, index, handler }) => {
+  const title = data ? data.fieldTitle : undefined;
+  const style = data ? data.fieldStyle : "column";
   let container = "text-dropdown flex-center";
   container += style === "row" ? " row" : " column";
 

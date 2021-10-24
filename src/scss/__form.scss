@@ -232,6 +232,21 @@
     border-radius: 30px;
   }
 
+  &__style-main {
+    gap: 24px;
+  }
+
+  &__style-row {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  &__style-box {
+    width: 48px;
+    height: 12px;
+    background-color: $background_gray;
+  }
+
   &__footer {
     height: 78px;
     justify-content: right;

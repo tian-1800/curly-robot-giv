@@ -1,10 +1,9 @@
 import React from "react";
 import TextDropdown from "./TextDropdown";
 
-const ShortText = ({ title, style, deployed, index, handler }) => (
+const ShortText = ({ data, deployed, index, handler }) => (
   <TextDropdown
-    title={title}
-    style={style}
+    data={data}
     type="short-text"
     deployed={deployed}
     index={index}

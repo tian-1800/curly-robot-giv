@@ -262,6 +262,9 @@ li {
 }
 
 .edit-field {
+  position: fixed;
+  top: 10%;
+  z-index: 100;
   width: 686px;
   background-color: #fff;
   padding: 0 33px;
@@ -299,6 +302,18 @@ li {
   border: solid 1px #e5e5e5;
   padding: 0 33px;
   border-radius: 30px;
+}
+.edit-field__style-main {
+  gap: 24px;
+}
+.edit-field__style-row {
+  flex-direction: row;
+  gap: 8px;
+}
+.edit-field__style-box {
+  width: 48px;
+  height: 12px;
+  background-color: #e5e5e5;
 }
 .edit-field__footer {
   height: 78px;
@@ -483,5 +498,5 @@ li {
   border: none;
   color: #383838;
   font-size: 12px;
-  line-height: 16;
+  line-height: 16px;
 }/*# sourceMappingURL=App.css.map */

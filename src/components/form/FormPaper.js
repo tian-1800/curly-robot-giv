@@ -11,7 +11,15 @@ import EditField from "./components/EditField";
 
 const FormPaper = () => {
   const [fontSize, setFontSize] = useState(12);
-  const [sections, setSections] = useState([[{ fieldName: "short-text" }]]);
+  const [sections, setSections] = useState([
+    [
+      {
+        fieldName: "short-text",
+        fieldTitle: "Driver Name",
+        fieldStyle: "column",
+      },
+    ],
+  ]);
   const [showFieldMenu, setShowFieldMenu] = useState(false);
   const [showEditMenu, setShowEditMenu] = useState(false);
   const [typeToEdit, setTypeToEdit] = useState();
@@ -61,13 +69,20 @@ const FormPaper = () => {
     }
     setSections(newSections);
     setShowFieldMenu(false);
-    console.log("delete");
   };
 
   const editField = () => {
     setShowFieldMenu(false);
     setShowEditMenu(true);
-    console.log("edit");
+  };
+
+  const setField = (newField) => {
+    const [i, j] = indexToEdit;
+    const newSections = [...sections];
+    const tempArr = sections[i];
+    tempArr.splice(j, 1, newField);
+    newSections.splice(i, 1, tempArr);
+    setShowEditMenu(false);
   };
 
   return (
@@ -93,7 +108,7 @@ const FormPaper = () => {
           <section className="form-paper__section" id={`section${i}`}>
             {section.map((field, j) => (
               <SwitchComponent
-                id={field.fieldName}
+                data={field}
                 deployed
                 index={[i, j]}
                 handler={handleModal}
@@ -123,9 +138,8 @@ const FormPaper = () => {
 
         {showEditMenu && (
           <EditField
-            header={"Text"}
-            title={"Driver Name"}
-            type={"short-text"}
+            field={sections[indexToEdit[0]][indexToEdit[1]]}
+            setField={setField}
           />
         )}
       </main>

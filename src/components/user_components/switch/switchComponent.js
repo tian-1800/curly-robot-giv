@@ -6,19 +6,58 @@ import ShortText from "../ShortText";
 import Table from "../Table";
 import VideoUpload from "../VideoUpload";
 
-const SwitchComponent = ({ id, deployed, index, handler }) => {
-  if (id === "short-text")
-    return <ShortText deployed={deployed} index={index} handler={handler} />;
-  if (id === "long-text")
-    return <LongText deployed={deployed} index={index} handler={handler} />;
-  if (id === "table")
-    return <Table deployed={deployed} index={index} handler={handler} />;
-  if (id === "drop-down")
-    return <Dropdown deployed={deployed} index={index} handler={handler} />;
-  if (id === "img-upload")
-    return <ImageUpload deployed={deployed} index={index} handler={handler} />;
-  if (id === "vid-upload")
-    return <VideoUpload deployed={deployed} index={index} handler={handler} />;
+const SwitchComponent = ({ id, data, deployed, index, handler }) => {
+  // console.log("data", data);
+  const name = data ? data.fieldName : id;
+  if (name === "short-text")
+    return (
+      <ShortText
+        deployed={deployed}
+        index={index}
+        handler={handler}
+        data={data}
+      />
+    );
+  if (name === "long-text")
+    return (
+      <LongText
+        deployed={deployed}
+        index={index}
+        handler={handler}
+        data={data}
+      />
+    );
+  if (name === "table")
+    return (
+      <Table deployed={deployed} index={index} handler={handler} data={data} />
+    );
+  if (name === "drop-down")
+    return (
+      <Dropdown
+        deployed={deployed}
+        index={index}
+        handler={handler}
+        data={data}
+      />
+    );
+  if (name === "img-upload")
+    return (
+      <ImageUpload
+        deployed={deployed}
+        index={index}
+        handler={handler}
+        data={data}
+      />
+    );
+  if (name === "vid-upload")
+    return (
+      <VideoUpload
+        deployed={deployed}
+        index={index}
+        handler={handler}
+        data={data}
+      />
+    );
   return null;
 };
 

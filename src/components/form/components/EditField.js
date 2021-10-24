@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Save16 } from "@carbon/icons-react";
 import dummy from "../../user_components/dummy/components";
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-};
+const EditField = ({ field, setField }) => {
+  const [localField, setLocalField] = useState(field);
 
-const EditField = ({ header, title, type, style, dataFrom, dataVar }) => {
-  const componentList = [
-    "short-text",
-    "long-text",
-    "table",
-    "drop-down",
-    "img-upload",
-    "vid-upload",
-  ];
+  const type = field.fieldName;
+  const componentList = ["short-text", "long-text", "img-upload", "vid-upload"];
+  const header = type === "drop-down" ? "Dropdown" : "Text";
   const destructuredDummy = dummy.reduce((arr, el) => [...arr, ...el.list], []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setField(localField);
+  };
+
+  const handleInput = (e) => {
+    const newField = localField;
+    newField[e.target.name] = e.target.value;
+    setLocalField(newField);
+  };
+
   const FieldTitle = () => (
     <label htmlFor="field-title" className="edit-field__long">
       Field Title
       <input
         type="text"
         id="field-title"
-        name="field-title"
-        value={title}
+        name="fieldTitle"
+        defaultValue={localField.fieldTitle}
         className="edit-field__input"
+        onBlur={handleInput}
       />
     </label>
   );
@@ -32,7 +38,12 @@ const EditField = ({ header, title, type, style, dataFrom, dataVar }) => {
   const FieldType = () => (
     <label htmlFor="field-type" className="edit-field__short">
       <span>Field Type</span>
-      <select id="field-type" name="field-type" className="edit-field__input">
+      <select
+        id="field-type"
+        name="fieldName"
+        className="edit-field__input"
+        onBlur={handleInput}
+      >
         {componentList.map((id) => {
           const component = destructuredDummy.find(
             (element) => element.id === id
@@ -50,29 +61,41 @@ const EditField = ({ header, title, type, style, dataFrom, dataVar }) => {
   const FieldStyle = () => (
     <div className="edit-field__style edit-field__short">
       <h4 className="edit-field__style-subtitle">Field Style</h4>
-      <div className="edit_field__style-main">
-        <label htmlFor="style-column">
+      <div className="edit-field__style-main flex-center">
+        <label
+          className="edit_field__style-label flex-center"
+          htmlFor="style-column"
+        >
           <input
             type="radio"
-            name="style-row"
+            name="fieldStyle"
+            value="column"
             id="style-column"
             className="edit-field__style-radio"
-            checked={!style || style === "column"}
+            defaultChecked={
+              !localField.fieldStyle || localField.fieldStyle === "column"
+            }
+            onChange={handleInput}
           />
           <div className="edit-field__style-column">
             <span className="edit-field__style-span">Title</span>
             <div className="edit-field__style-box" />
           </div>
         </label>
-        <label htmlFor="style-row">
+        <label
+          className="edit_field__style-label flex-center"
+          htmlFor="style-row"
+        >
           <input
             type="radio"
-            name="style-row"
+            name="fieldStyle"
+            value="row"
             id="style-row"
             className="edit-field__style-radio"
-            checked={style === "row"}
+            defaultChecked={localField.fieldStyle === "row"}
+            onChange={handleInput}
           />
-          <div className="edit-field__style-row">
+          <div className="edit-field__style-row flex-center">
             <span className="edit-field__style-span">Title</span>
             <div className="edit-field__style-box" />
           </div>
@@ -86,7 +109,7 @@ const EditField = ({ header, title, type, style, dataFrom, dataVar }) => {
       Get data from..
       <select id="get-data" name="get-data" className="edit-field__input">
         <option value="get-data-1" selected>
-          {dataFrom || "This Form Assignee"}
+          {"This Form Assignee"}
         </option>
       </select>
     </label>
@@ -97,7 +120,7 @@ const EditField = ({ header, title, type, style, dataFrom, dataVar }) => {
       Get data from..
       <select id="get-data" name="get-data" className="edit-field__input">
         <option value="get-data-1" selected>
-          {dataVar || "Assignee Name"}
+          {"Assignee Name"}
         </option>
       </select>
     </label>
