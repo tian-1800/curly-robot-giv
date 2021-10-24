@@ -5,8 +5,14 @@ import dummy from "./dummy/components";
 const TextDropdown = ({ data, type, deployed, index, handler }) => {
   const title = data ? data.fieldTitle : undefined;
   const style = data ? data.fieldStyle : "column";
-  let container = "text-dropdown flex-center";
+  let container = `text-dropdown flex-center ${type}`;
   container += style === "row" ? " row" : " column";
+
+  const titleText = {
+    "short-text": "Short Text",
+    "long-text": "Long Text",
+    "drop-down": "Dropdown",
+  };
 
   const { list } = dummy[0];
   const component = list.find((el) => el.id === type);
@@ -17,10 +23,22 @@ const TextDropdown = ({ data, type, deployed, index, handler }) => {
 
   return (
     <div className={container}>
-      {title ? <h4 className="text-dropdown__title">{title} :</h4> : null}
+      {title ? (
+        <h4 className="text-dropdown__title">{title} :</h4>
+      ) : (
+        <h4 className="text-dropdown__title--invisible">.</h4>
+      )}
       <div className={`input-group ${type} flex-center`}>
         <img src={component.icon} alt="icon" />
-        <p className="input-group__text">Employee Name; Employee List</p>
+        {type === "drop-down" && deployed ? (
+          <select className="input-group__text">
+            <option value={1} selected disabled={!deployed}>
+              Employee ID; Employee List
+            </option>
+          </select>
+        ) : (
+          <p className="input-group__text">{titleText[type]}</p>
+        )}
         {deployed && (
           <button
             type="button"

@@ -3,7 +3,7 @@ import Dropdown from "../Dropdown";
 import ImageUpload from "../ImageUpload";
 import LongText from "../LongText";
 import ShortText from "../ShortText";
-import Table from "../Table";
+// import Table from "../Table";
 import VideoUpload from "../VideoUpload";
 
 const SwitchComponent = ({ id, data, deployed, index, handler }) => {
@@ -27,10 +27,10 @@ const SwitchComponent = ({ id, data, deployed, index, handler }) => {
         data={data}
       />
     );
-  if (name === "table")
-    return (
-      <Table deployed={deployed} index={index} handler={handler} data={data} />
-    );
+  // if (name === "table")
+  //   return (
+  //     <Table deployed={deployed} index={index} handler={handler} data={data} />
+  //   );
   if (name === "drop-down")
     return (
       <Dropdown

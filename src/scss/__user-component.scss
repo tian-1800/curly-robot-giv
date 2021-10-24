@@ -1,6 +1,16 @@
 .text-dropdown {
-  max-width: 15.625rem;
+  height: 3.3125rem;
   position: relative;
+
+  &.short-text,
+  &.drop-down {
+    flex-basis: 20%;
+    max-width: 17rem;
+  }
+
+  &.long-text {
+    flex-basis: 25rem;
+  }
 
   &.column {
     flex-direction: column;
@@ -11,7 +21,11 @@
   &__title {
     font-size: 0.75rem;
     font-weight: 700;
-    // line-height: 1.1rem;
+
+    &--invisible {
+      @extend .text-dropdown__title;
+      visibility: hidden;
+    }
   }
 }
 
@@ -79,28 +93,5 @@
 
   &__title {
     font-weight: 700;
-  }
-}
-
-.menu-text {
-  width: 250px;
-  height: 128px;
-  background-color: $background_white;
-  @include border_gray;
-  border-radius: 10px;
-  box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
-  padding: 16px 20px 16px 27px;
-  position: absolute;
-  // left: 105%;
-  z-index: 5;
-
-  &__choice {
-    background-color: inherit;
-    gap: 15px;
-    height: 32px;
-    border: none;
-    color: $text_dark;
-    font-size: 12px;
-    line-height: 16px;
   }
 }

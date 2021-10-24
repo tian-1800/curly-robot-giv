@@ -6,13 +6,19 @@ const EditField = ({ field, setField }) => {
   const [localField, setLocalField] = useState(field);
 
   const type = field.fieldName;
-  const componentList = ["short-text", "long-text", "img-upload", "vid-upload"];
+  const componentList = [
+    "short-text",
+    "long-text",
+    "drop-down",
+    "img-upload",
+    "vid-upload",
+  ];
   const header = type === "drop-down" ? "Dropdown" : "Text";
   const destructuredDummy = dummy.reduce((arr, el) => [...arr, ...el.list], []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setField(localField);
+    setField(localField, "edit");
   };
 
   const handleInput = (e) => {
@@ -49,7 +55,7 @@ const EditField = ({ field, setField }) => {
             (element) => element.id === id
           );
           return (
-            <option value={id} selected={id === type}>
+            <option value={id} selected={id === field.fieldName}>
               {component.name}
             </option>
           );

@@ -8,6 +8,7 @@ import MenuTextDropdown from "./components/MenuTextDropdown";
 import MenuUpload from "./components/MenuUpload";
 import bgHeader from "../../images/Vector.svg";
 import EditField from "./components/EditField";
+import AddField from "./components/AddField";
 
 const FormPaper = () => {
   const [fontSize, setFontSize] = useState(12);
@@ -22,6 +23,7 @@ const FormPaper = () => {
   ]);
   const [showFieldMenu, setShowFieldMenu] = useState(false);
   const [showEditMenu, setShowEditMenu] = useState(false);
+  const [showAddMenu, setShowAddMenu] = useState(false);
   const [typeToEdit, setTypeToEdit] = useState();
   const [indexToEdit, setIndexToEdit] = useState(-1);
   const [pointer, setPointer] = useState([0, 0]);
@@ -48,7 +50,7 @@ const FormPaper = () => {
       setIndexToEdit(-1);
     } else if (["short-text", "long-text", "drop-down"].includes(type)) {
       setShowFieldMenu("text");
-      setTypeToEdit(type === "drop-down" ? "Dropdown" : "Text");
+      setTypeToEdit(type === "drop-down" ? "Dropdown" : "Text Field");
       setIndexToEdit(index);
     } else if (["vid-upload", "img-upload"].includes(type)) {
       setShowFieldMenu("upload");
@@ -76,13 +78,34 @@ const FormPaper = () => {
     setShowEditMenu(true);
   };
 
-  const setField = (newField) => {
-    const [i, j] = indexToEdit;
-    const newSections = [...sections];
-    const tempArr = sections[i];
-    tempArr.splice(j, 1, newField);
-    newSections.splice(i, 1, tempArr);
-    setShowEditMenu(false);
+  const setField = (newField, mode) => {
+    if (mode === "edit") {
+      const [i, j] = indexToEdit;
+      const newSections = [...sections];
+      const tempArr = sections[i];
+      tempArr.splice(j, 1, newField);
+      newSections.splice(i, 1, tempArr);
+      setShowEditMenu(false);
+    } else if (mode === "pre") {
+      const [i, j] = indexToEdit;
+      const newSections = [...sections];
+      const tempArr = sections[i];
+      tempArr.splice(j, 0, newField);
+      newSections.splice(i, 1, tempArr);
+      setShowAddMenu(false);
+    } else if (mode === "post") {
+      const [i, j] = indexToEdit;
+      const newSections = [...sections];
+      const tempArr = sections[i];
+      tempArr.splice(j + 1, 0, newField);
+      newSections.splice(i, 1, tempArr);
+      setShowAddMenu(false);
+    }
+  };
+
+  const showAdd = () => {
+    setShowFieldMenu(false);
+    setShowAddMenu(true);
   };
 
   return (
@@ -130,6 +153,7 @@ const FormPaper = () => {
             del={deleteField}
             pointer={pointer}
             edit={editField}
+            add={showAdd}
           />
         )}
         {showFieldMenu === "upload" && (
@@ -142,6 +166,8 @@ const FormPaper = () => {
             setField={setField}
           />
         )}
+
+        {showAddMenu && <AddField setField={setField} pointer={pointer} />}
       </main>
     </div>
   );
