@@ -7,7 +7,13 @@
 body {
   font-family: "Nunito", sans-serif;
   color: #383838;
-  background-color: #cca;
+  background-color: #fafbfd;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
@@ -31,6 +37,7 @@ li {
 .form-container {
   display: flex;
   justify-content: space-between;
+  padding-left: 45px;
 }
 
 .flex-center {
@@ -57,6 +64,45 @@ li {
 }
 .header__right-item {
   gap: 12px;
+}
+
+.left-nav {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  background-color: #fff;
+}
+.left-nav__profile {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left-nav__profile-pic {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background-color: #cca;
+}
+.left-nav__item, .left-nav__item--active {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left-nav__item--active {
+  position: relative;
+  background: linear-gradient(0deg, rgba(251, 239, 164, 0.3), rgba(251, 239, 164, 0.3)), #ffffff;
+}
+.left-nav__item--active::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border-left: solid 10px #f6da2b;
+  left: 0;
+  z-index: 10;
 }
 
 .fp-header {
@@ -146,9 +192,7 @@ li {
 .form-paper__header-background {
   height: 5.5625rem;
   width: 100%;
-  background: linear-gradient(269.84deg, #59c4e5 31.53%, #afd8bd 97.95%);
   border-radius: 0.625rem;
-  transform: rotate(-180deg);
   position: absolute;
   top: 0;
 }
@@ -279,6 +323,7 @@ li {
   width: 273px;
   padding: 20px;
   border-radius: 5px;
+  position: relative;
 }
 .right-sidebar__title {
   gap: 15px;
@@ -340,7 +385,6 @@ li {
 .right-sidebar__dragged-component, .right-sidebar__dragged-component--invisible {
   position: absolute;
   z-index: 2;
-  opacity: 0.8;
 }
 .right-sidebar__dragged-component--invisible {
   display: none;
@@ -348,6 +392,7 @@ li {
 
 .text-dropdown {
   max-width: 15.625rem;
+  position: relative;
 }
 .text-dropdown.column {
   flex-direction: column;
@@ -383,6 +428,7 @@ li {
   background-color: #fafafa;
   height: 4.0625rem;
   max-width: 15.625rem;
+  min-width: 10.3125rem;
   padding: 0 0.4375rem 0 0.75rem;
   border-radius: 0.3125rem;
   border: solid 1px #e5e5e5;
@@ -417,4 +463,25 @@ li {
 }
 .title__title {
   font-weight: 700;
+}
+
+.menu-text {
+  width: 250px;
+  height: 128px;
+  background-color: #fff;
+  border: solid 1px #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
+  padding: 16px 20px 16px 27px;
+  position: absolute;
+  z-index: 5;
+}
+.menu-text__choice {
+  background-color: inherit;
+  gap: 15px;
+  height: 32px;
+  border: none;
+  color: #383838;
+  font-size: 12px;
+  line-height: 16;
 }/*# sourceMappingURL=App.css.map */

@@ -8,14 +8,12 @@ const RightSidebar = () => {
   const [activeMenu, setActiveMenu] = useState(2);
   const [draggedId, setDraggedId] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [pointer, setPointer] = useState([0, 0]);
 
   const dragStartHandler = (e) => {
-    // e.stopImmediatePropagation();
-    console.log("drag start");
     e.dataTransfer.setData("text/plain", draggedId);
   };
   const dragEndHandler = () => {
-    console.log("drag end");
     setIsDragging(false);
   };
 
@@ -33,6 +31,7 @@ const RightSidebar = () => {
           setMenu={setActiveMenu}
           setDraggedId={setDraggedId}
           setIsDragging={setIsDragging}
+          setPointer={setPointer}
         />
       ))}
       <div
@@ -41,6 +40,7 @@ const RightSidebar = () => {
             ? "right-sidebar__dragged-component"
             : "right-sidebar__dragged-component--invisible"
         }
+        style={{ left: 0, top: pointer[1] }}
         draggable
         onDrag={() => {}}
         onDragStart={dragStartHandler}

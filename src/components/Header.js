@@ -5,6 +5,7 @@ import { GrPowerShutdown } from "react-icons/gr";
 import { MdSettings } from "react-icons/md";
 import { Icon } from "@iconify/react";
 import adeptIcon from "../images/adept-form-icon.png";
+import refresh from "../images/vector.svg";
 
 const Header = () => {
   console.log("hi");
@@ -13,6 +14,7 @@ const Header = () => {
       <div className="header__left flex-center">
         <img className="header__left-img" src={adeptIcon} alt="AdeptForms" />
         <HiMenuAlt3 className="header__left-menu" />
+        <img src={refresh} alt="" />
       </div>
       <div className="header__right flex-center">
         <span className="header__right-item">

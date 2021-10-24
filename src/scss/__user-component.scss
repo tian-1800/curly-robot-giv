@@ -1,5 +1,6 @@
 .text-dropdown {
   max-width: 15.625rem;
+  position: relative;
 
   &.column {
     flex-direction: column;
@@ -40,6 +41,7 @@
   background-color: #fafafa;
   height: 4.0625rem;
   max-width: 15.625rem;
+  min-width: 10.3125rem;
   padding: 0 0.4375rem 0 0.75rem;
   border-radius: 0.3125rem;
   border: solid 1px $background_gray;
@@ -77,5 +79,28 @@
 
   &__title {
     font-weight: 700;
+  }
+}
+
+.menu-text {
+  width: 250px;
+  height: 128px;
+  background-color: $background_white;
+  @include border_gray;
+  border-radius: 10px;
+  box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
+  padding: 16px 20px 16px 27px;
+  position: absolute;
+  // left: 105%;
+  z-index: 5;
+
+  &__choice {
+    background-color: inherit;
+    gap: 15px;
+    height: 32px;
+    border: none;
+    color: $text_dark;
+    font-size: 12px;
+    line-height: 16;
   }
 }

@@ -9,6 +9,7 @@ const List = ({
   setMenu,
   setDraggedId,
   setIsDragging,
+  setPointer,
 }) => {
   const handleMenu = () => {
     setMenu(index);
@@ -17,6 +18,7 @@ const List = ({
   const handleClick = (e) => {
     setDraggedId(e.target.id);
     setIsDragging(true);
+    setPointer([e.clientX, e.clientY - 100]);
   };
 
   return (
