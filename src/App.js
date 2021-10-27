@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import FormContainer from "./components/FormContainer";
 import Header from "./components/Header";
+import Help from "./components/Help";
 import LeftNav from "./components/left_sidebar/LeftNav";
 
 function App() {
@@ -10,10 +11,9 @@ function App() {
       <Header />
       <main className="main-app">
         <LeftNav />
-        {/* <LeftNav />
-        <Pages /> */}
         <FormContainer />
       </main>
+      <Help />
     </div>
   );
 }

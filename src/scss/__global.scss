@@ -40,6 +40,7 @@ li {
 
 .form-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding-left: 45px;
 }
@@ -47,4 +48,21 @@ li {
 .flex-center {
   display: flex;
   align-items: center;
+}
+
+.help {
+  border-radius: 20px 5px 20px 20px;
+  background-color: $yellow;
+  height: 36px;
+  width: 80px;
+  position: fixed;
+  bottom: 24px;
+  right: 79px;
+  justify-content: center;
+  gap: 8px;
+
+  &__text {
+    font-size: 13px;
+    font-weight: 700;
+  }
 }

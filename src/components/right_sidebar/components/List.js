@@ -12,7 +12,8 @@ const List = ({
   setPointer,
 }) => {
   const handleMenu = () => {
-    setMenu(index);
+    if (index === activeIndex) setMenu(null);
+    else setMenu(index);
   };
 
   const handleClick = (e) => {
@@ -26,7 +27,11 @@ const List = ({
       <h4 className="right-sidebar__subtitle">
         {group.title}
         <button
-          className="right-sidebar__menu-button"
+          className={
+            index === activeIndex
+              ? "right-sidebar__menu-button--active"
+              : "right-sidebar__menu-button"
+          }
           type="button"
           onClick={handleMenu}
         >

@@ -1,0 +1,36 @@
+.page-thumbnail {
+  width: 234px;
+
+  &__item {
+    display: flex;
+    gap: 19px;
+  }
+
+  &__index {
+    background-color: $yellow;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 700;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  &__add {
+    height: 46px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: dashed 1px $yellow;
+    background-color: $background_white;
+
+    &-icon {
+      margin: 0 21px;
+    }
+
+    &-text {
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
