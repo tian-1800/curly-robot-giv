@@ -9,6 +9,7 @@ import MenuUpload from "./components/MenuUpload";
 import bgHeader from "../../images/Vector.svg";
 import EditField from "./components/EditField";
 import AddField from "./components/AddField";
+import ModalContainer from "./components/ModalContainer";
 
 const FormPaper = () => {
   const [fontSize, setFontSize] = useState(12);
@@ -43,12 +44,9 @@ const FormPaper = () => {
     e.stopPropagation();
   };
 
-  const handleModal = (index, type, [x, y]) => {
-    setPointer([x - 100, y - 100]);
-    if (index[0] === indexToEdit[0] && index[1] === indexToEdit[1]) {
-      setShowFieldMenu(false);
-      setIndexToEdit(-1);
-    } else if (["short-text", "long-text", "drop-down"].includes(type)) {
+  const handleModal = (index, type, [y, x]) => {
+    setPointer([x, y]);
+    if (["short-text", "long-text", "drop-down"].includes(type)) {
       setShowFieldMenu("text");
       setTypeToEdit(type === "drop-down" ? "Dropdown" : "Text Field");
       setIndexToEdit(index);
@@ -148,16 +146,20 @@ const FormPaper = () => {
           <p className="form-paper__dropzone-text"> Drop here to add section</p>
         </section>
         {showFieldMenu === "text" && (
-          <MenuTextDropdown
-            type={typeToEdit}
-            del={deleteField}
-            pointer={pointer}
-            edit={editField}
-            add={showAdd}
-          />
+          <ModalContainer onClick={() => setShowFieldMenu(false)}>
+            <MenuTextDropdown
+              type={typeToEdit}
+              del={deleteField}
+              pointer={pointer}
+              edit={editField}
+              add={showAdd}
+            />
+          </ModalContainer>
         )}
         {showFieldMenu === "upload" && (
-          <MenuUpload type={typeToEdit} del={deleteField} pointer={pointer} />
+          <ModalContainer onClick={() => setShowFieldMenu(false)}>
+            <MenuUpload type={typeToEdit} del={deleteField} pointer={pointer} />
+          </ModalContainer>
         )}
 
         {showEditMenu && (

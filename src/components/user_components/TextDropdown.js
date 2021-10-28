@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import dummy from "./dummy/components";
 
 const TextDropdown = ({ data, type, deployed, index, handler }) => {
+  const buttonRef = useRef();
+
   const title = data ? data.fieldTitle : undefined;
   const style = data ? data.fieldStyle : "column";
   let container = `text-dropdown flex-center ${type}`;
@@ -17,8 +19,9 @@ const TextDropdown = ({ data, type, deployed, index, handler }) => {
   const { list } = dummy[0];
   const component = list.find((el) => el.id === type);
 
-  const handleClick = (e) => {
-    handler(index, type, [e.clientX, e.clientY]);
+  const handleClick = () => {
+    const { offsetTop, offsetLeft } = buttonRef.current;
+    handler(index, type, [offsetTop, offsetLeft]);
   };
 
   return (
@@ -41,6 +44,7 @@ const TextDropdown = ({ data, type, deployed, index, handler }) => {
         )}
         {deployed && (
           <button
+            ref={buttonRef}
             type="button"
             className="input-group__button"
             onClick={handleClick}

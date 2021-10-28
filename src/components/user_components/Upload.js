@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import imageUpload from "./icons/image_upload.svg";
 
 const Upload = ({ type, deployed, index, handler }) => {
-  const handleClick = (e) => {
-    handler(index, type, [e.clientX, e.clientY]);
+  const buttonRef = useRef();
+
+  const handleClick = () => {
+    const { offsetTop, offsetLeft } = buttonRef.current;
+    handler(index, type, [offsetTop, offsetLeft]);
   };
 
   return (
@@ -16,6 +19,7 @@ const Upload = ({ type, deployed, index, handler }) => {
 
       {deployed ? (
         <button
+          ref={buttonRef}
           type="button"
           className="upload__button flex-center"
           onClick={handleClick}

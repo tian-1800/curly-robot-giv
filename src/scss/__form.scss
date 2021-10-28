@@ -278,6 +278,16 @@
   }
 }
 
+.modal-container {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
 .menu-text {
   width: 250px;
   height: 128px;
@@ -287,7 +297,27 @@
   box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
   padding: 16px 20px 16px 27px;
   position: absolute;
-  // left: 105%;
+  z-index: 5;
+
+  &__choice {
+    background-color: inherit;
+    gap: 15px;
+    height: 32px;
+    border: none;
+    color: $text_dark;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.menu-upload {
+  width: 250px;
+  background-color: $background_white;
+  @include border_gray;
+  border-radius: 10px;
+  box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
+  padding: 16px 20px 16px 27px;
+  position: absolute;
   z-index: 5;
 
   &__choice {

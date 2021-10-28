@@ -362,6 +362,16 @@ li {
   font-size: 14px;
 }
 
+.modal-container {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
 .menu-text {
   width: 250px;
   height: 128px;
@@ -374,6 +384,26 @@ li {
   z-index: 5;
 }
 .menu-text__choice {
+  background-color: inherit;
+  gap: 15px;
+  height: 32px;
+  border: none;
+  color: #383838;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.menu-upload {
+  width: 250px;
+  background-color: #fff;
+  border: solid 1px #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
+  padding: 16px 20px 16px 27px;
+  position: absolute;
+  z-index: 5;
+}
+.menu-upload__choice {
   background-color: inherit;
   gap: 15px;
   height: 32px;
@@ -480,7 +510,6 @@ li {
 
 .text-dropdown {
   height: 3.3125rem;
-  position: relative;
 }
 .text-dropdown.short-text, .text-dropdown.drop-down {
   flex-basis: 20%;
