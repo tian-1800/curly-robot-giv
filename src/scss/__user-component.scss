@@ -1,6 +1,9 @@
+.component-container {
+  position: static;
+}
+
 .text-dropdown {
   height: 3.3125rem;
-  // position: relative;
 
   &.short-text,
   &.drop-down {

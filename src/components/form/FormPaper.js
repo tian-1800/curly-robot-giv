@@ -161,7 +161,6 @@ const FormPaper = () => {
             <MenuUpload type={typeToEdit} del={deleteField} pointer={pointer} />
           </ModalContainer>
         )}
-
         {showEditMenu && (
           <EditField
             field={sections[indexToEdit[0]][indexToEdit[1]]}
@@ -169,7 +168,11 @@ const FormPaper = () => {
           />
         )}
 
-        {showAddMenu && <AddField setField={setField} pointer={pointer} />}
+        {showAddMenu && (
+          <ModalContainer onClick={() => setShowFieldMenu(false)}>
+            <AddField setField={setField} pointer={pointer} />
+          </ModalContainer>
+        )}
       </main>
     </div>
   );

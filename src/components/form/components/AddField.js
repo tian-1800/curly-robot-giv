@@ -27,7 +27,7 @@ const AddField = ({ setField, pointer }) => {
   return (
     <div
       className="add-field"
-      style={{ left: `${pointer[0]}px`, top: `${pointer[1]}px` }}
+      style={{ left: `${pointer[0] + 32}px`, top: `${pointer[1] - 9}px` }}
     >
       <button
         type="button"
@@ -44,7 +44,6 @@ const AddField = ({ setField, pointer }) => {
         To The Right
       </button>
       <label htmlFor="field-type" className="edit-field__short">
-        <span>Field Type</span>
         <select
           id="field-type"
           name="fieldName"

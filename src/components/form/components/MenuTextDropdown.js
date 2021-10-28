@@ -6,7 +6,7 @@ import editIcon from "../icons/edit.svg";
 const MenuTextDropdown = ({ type, del, pointer, edit, add }) => (
   <div
     className="menu-text"
-    style={{ left: `${pointer[0] + 408}px`, top: `${pointer[1] + 44}px` }}
+    style={{ left: `${pointer[0] + 32}px`, top: `${pointer[1] - 9}px` }}
   >
     <button
       type="button"

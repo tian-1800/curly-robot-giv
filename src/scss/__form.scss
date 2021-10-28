@@ -94,17 +94,14 @@
 }
 
 .form-paper {
-  position: relative;
   width: 603px;
   background-color: $background_white;
   border-radius: 0.625rem;
 
   &__header-background {
     height: 5.5625rem;
-    width: 100%;
     border-radius: 0.625rem;
     position: absolute;
-    top: 0;
   }
 
   &__main {
@@ -279,13 +276,21 @@
 }
 
 .modal-container {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
   z-index: 100;
-  background-color: rgba(100, 100, 100, 0.5);
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(120deg, #222, #222);
+    opacity: 0.3;
+  }
 }
 
 .menu-text {

@@ -5,7 +5,7 @@ import delIcon from "../icons/delete.svg";
 const MenuUpload = ({ type, del, pointer }) => (
   <div
     className="menu-upload"
-    style={{ left: `${pointer[0] + 408}px`, top: `${pointer[1] + 26}px` }}
+    style={{ left: `${pointer[0] + 32}px`, top: `${pointer[1] - 26}px` }}
   >
     <button className="menu-upload__choice flex-center" type="button">
       <img src={uploadIcon} alt="upload" />
