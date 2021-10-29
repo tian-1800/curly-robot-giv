@@ -290,11 +290,11 @@ li {
 .edit-field {
   position: fixed;
   top: 10%;
+  left: 25%;
   z-index: 100;
   width: 686px;
   background-color: #fff;
   padding: 0 33px;
-  border: solid 1px #333;
   border-radius: 20px;
 }
 .edit-field__header {
@@ -387,7 +387,7 @@ li {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(120deg, #222, #222);
+  background-image: linear-gradient(120deg, #666, #666);
   opacity: 0.3;
 }
 
@@ -420,6 +420,7 @@ li {
   box-shadow: 0px 8px 8px rgba(229, 229, 229, 0.3);
   padding: 16px 20px 16px 27px;
   position: absolute;
+  top: -17px;
   z-index: 5;
 }
 .menu-upload__choice {
@@ -441,6 +442,8 @@ li {
   padding: 16px 20px 16px 27px;
   position: absolute;
   z-index: 5;
+  left: 252px;
+  top: 48px;
 }
 .add-field__choice {
   background-color: inherit;

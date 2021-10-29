@@ -3,11 +3,8 @@ import addField from "../icons/add_field.svg";
 import delIcon from "../icons/delete.svg";
 import editIcon from "../icons/edit.svg";
 
-const MenuTextDropdown = ({ type, del, pointer, edit, add }) => (
-  <div
-    className="menu-text"
-    style={{ left: `${pointer[0] + 32}px`, top: `${pointer[1] - 9}px` }}
-  >
+const MenuTextDropdown = ({ type, del, edit, add }) => (
+  <div className="menu-text">
     <button
       type="button"
       onClick={edit}

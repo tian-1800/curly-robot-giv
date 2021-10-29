@@ -72,7 +72,6 @@ const FormPaper = () => {
   };
 
   const editField = () => {
-    setShowFieldMenu(false);
     setShowEditMenu(true);
   };
 
@@ -102,15 +101,17 @@ const FormPaper = () => {
   };
 
   const showAdd = () => {
-    setShowFieldMenu(false);
+    // setShowFieldMenu(false);
     setShowAddMenu(true);
   };
 
   const hideModal = (e) => {
-    if (e.target.id === "modal") {
+    if (e.target.id === "field-menu-modal") {
       setShowFieldMenu(false);
-      if (showAddMenu) setShowAddMenu(false);
-      console.log(e.target.id);
+    } else if (e.target.id === "add-menu-modal") {
+      setShowAddMenu(false);
+    } else if (e.target.id === "edit-menu-modal") {
+      setShowEditMenu(false);
     }
   };
 
@@ -154,31 +155,48 @@ const FormPaper = () => {
           <p className="form-paper__dropzone-text"> Drop here to add section</p>
         </section>
         {showFieldMenu === "text" && (
-          <ModalContainer onClick={hideModal}>
+          <ModalContainer
+            onClick={hideModal}
+            pointer={pointer}
+            id="field-menu-modal"
+          >
             <MenuTextDropdown
               type={typeToEdit}
               del={deleteField}
-              pointer={pointer}
               edit={editField}
               add={showAdd}
             />
           </ModalContainer>
         )}
         {showFieldMenu === "upload" && (
-          <ModalContainer onClick={hideModal}>
-            <MenuUpload type={typeToEdit} del={deleteField} pointer={pointer} />
+          <ModalContainer
+            onClick={hideModal}
+            pointer={pointer}
+            id="field-menu-modal"
+          >
+            <MenuUpload type={typeToEdit} del={deleteField} />
           </ModalContainer>
         )}
         {showEditMenu && (
-          <EditField
-            field={sections[indexToEdit[0]][indexToEdit[1]]}
-            setField={setField}
-          />
+          <ModalContainer
+            onClick={hideModal}
+            pointer={pointer}
+            id="edit-menu-modal"
+          >
+            <EditField
+              field={sections[indexToEdit[0]][indexToEdit[1]]}
+              setField={setField}
+            />
+          </ModalContainer>
         )}
 
         {showAddMenu && (
-          <ModalContainer onClick={hideModal}>
-            <AddField setField={setField} pointer={pointer} />
+          <ModalContainer
+            onClick={hideModal}
+            pointer={pointer}
+            id="add-menu-modal"
+          >
+            <AddField setField={setField} />
           </ModalContainer>
         )}
       </main>

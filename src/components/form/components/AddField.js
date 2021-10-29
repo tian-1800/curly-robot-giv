@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dummy from "../../user_components/dummy/components";
 
-const AddField = ({ setField, pointer }) => {
+const AddField = ({ setField }) => {
   const [localField, setLocalField] = useState({ fieldName: "short-text" });
 
   const componentList = [
@@ -25,10 +25,7 @@ const AddField = ({ setField, pointer }) => {
   };
 
   return (
-    <div
-      className="add-field"
-      style={{ left: `${pointer[0] + 32}px`, top: `${pointer[1] - 9}px` }}
-    >
+    <div className="add-field">
       <button
         type="button"
         className="add-field__choice flex-center"
