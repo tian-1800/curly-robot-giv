@@ -3,6 +3,7 @@ import Dropdown from "../Dropdown";
 import ImageUpload from "../ImageUpload";
 import LongText from "../LongText";
 import ShortText from "../ShortText";
+import Title from "../Title";
 // import Table from "../Table";
 import VideoUpload from "../VideoUpload";
 
@@ -50,6 +51,7 @@ const SwitchComponent = ({ id, data, deployed, index, handler }) => {
           data={data}
         />
       )}
+      {name === "title" && <Title data={data} />}
     </>
   );
 };

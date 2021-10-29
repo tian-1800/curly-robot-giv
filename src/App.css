@@ -220,7 +220,6 @@ li {
   padding: 1.125rem 2.25rem;
 }
 .form-paper__top {
-  position: relative;
   gap: 1.125rem;
   margin-bottom: 0.25rem;
 }
@@ -549,7 +548,7 @@ li {
   height: 3.3125rem;
 }
 .text-dropdown.short-text, .text-dropdown.drop-down {
-  flex-basis: 20%;
+  flex-basis: 27%;
   max-width: 17rem;
 }
 .text-dropdown.long-text {

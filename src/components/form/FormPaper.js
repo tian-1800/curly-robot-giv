@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { BsPlus } from "react-icons/bs";
 import SwitchComponent from "../user_components/switch/switchComponent";
-import ImageUpload from "../user_components/ImageUpload";
-import Title from "../user_components/Title";
 import Header from "./components/Header";
 import MenuTextDropdown from "./components/MenuTextDropdown";
 import MenuUpload from "./components/MenuUpload";
@@ -14,6 +12,16 @@ import ModalContainer from "./components/ModalContainer";
 const FormPaper = () => {
   const [fontSize, setFontSize] = useState(12);
   const [sections, setSections] = useState([
+    [
+      {
+        fieldName: "vid-upload",
+      },
+      {
+        fieldName: "title",
+        fieldTitle: "Premier Transportation",
+        fieldSubtitle: "Charter Log",
+      },
+    ],
     [
       {
         fieldName: "short-text",
@@ -49,11 +57,11 @@ const FormPaper = () => {
     if (["short-text", "long-text", "drop-down"].includes(type)) {
       setShowFieldMenu("text");
       setTypeToEdit(type === "drop-down" ? "Dropdown" : "Text Field");
-      setIndexToEdit(index);
+      if (index) setIndexToEdit(index);
     } else if (["vid-upload", "img-upload"].includes(type)) {
       setShowFieldMenu("upload");
       setTypeToEdit(type === "img-upload" ? "Image" : "Video");
-      setIndexToEdit(index);
+      if (index) setIndexToEdit(index);
     }
   };
 
@@ -101,7 +109,6 @@ const FormPaper = () => {
   };
 
   const showAdd = () => {
-    // setShowFieldMenu(false);
     setShowAddMenu(true);
   };
 
@@ -123,8 +130,14 @@ const FormPaper = () => {
       <Header fz={fontSize} setFz={setFontSize} />
       <main className="form-paper__main">
         <section className="form-paper__top flex-center">
-          <ImageUpload />
-          <Title title="Premier Transportation" subtitle="Charter Log" />
+          {sections[0].map((field, j) => (
+            <SwitchComponent
+              data={field}
+              deployed
+              index={[0, j]}
+              handler={handleModal}
+            />
+          ))}
         </section>
         <div className="form-paper__separator">
           <button
@@ -134,13 +147,13 @@ const FormPaper = () => {
             <BsPlus />
           </button>
         </div>
-        {sections.map((section, i) => (
-          <section className="form-paper__section" id={`section${i}`}>
+        {sections.slice(1).map((section, i) => (
+          <section className="form-paper__section" id={`section${i + 1}`}>
             {section.map((field, j) => (
               <SwitchComponent
                 data={field}
                 deployed
-                index={[i, j]}
+                index={[i + 1, j]}
                 handler={handleModal}
               />
             ))}
