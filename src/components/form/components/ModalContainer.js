@@ -3,7 +3,7 @@
 import React from "react";
 
 const ModalContainer = ({ onClick, children }) => (
-  <div className="modal-container" onClick={onClick}>
+  <div className="modal-container" id="modal" onClick={onClick}>
     {children}
   </div>
 );

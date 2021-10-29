@@ -7,43 +7,40 @@ import { Icon } from "@iconify/react";
 import adeptIcon from "../images/adept-form-icon.png";
 import refresh from "../images/vector.svg";
 
-const Header = () => {
-  console.log("hi");
-  return (
-    <header className="header">
-      <div className="header__left flex-center">
-        <img className="header__left-img" src={adeptIcon} alt="AdeptForms" />
-        <HiMenuAlt3 className="header__left-menu" />
-        <img src={refresh} alt="" />
-      </div>
-      <div className="header__right flex-center">
-        <span className="header__right-item">
-          <Icon icon="bytesize:user" />
-          <span>My Profile</span>
-        </span>
-        <span className="header__right-item flex-center">
-          <i className="las la-coins" />
-          <span>My Balance</span>
-        </span>
-        <span className="header__right-item flex-center">
-          <IoChatbubbleOutline />
-          <span>Messages</span>
-        </span>
-        <span className="header__right-item flex-center">
-          <IoTicketOutline />
-          <span>Issue</span>
-        </span>
-        <span className="header__right-item flex-center">
-          <MdSettings />
-          <span>Settings</span>
-        </span>
-        <span className="header__right-item flex-center">
-          <GrPowerShutdown />
-          <span>Logout</span>
-        </span>
-      </div>
-    </header>
-  );
-};
+const Header = () => (
+  <header className="header">
+    <div className="header__left flex-center">
+      <img className="header__left-img" src={adeptIcon} alt="AdeptForms" />
+      <HiMenuAlt3 className="header__left-menu" />
+      <img src={refresh} alt="" />
+    </div>
+    <div className="header__right flex-center">
+      <span className="header__right-item flex-center">
+        <Icon icon="bytesize:user" />
+        <span>My Profile</span>
+      </span>
+      <span className="header__right-item flex-center">
+        <i className="las la-coins" />
+        <span>My Balance</span>
+      </span>
+      <span className="header__right-item flex-center">
+        <IoChatbubbleOutline />
+        <span>Messages</span>
+      </span>
+      <span className="header__right-item flex-center">
+        <IoTicketOutline />
+        <span>Issue</span>
+      </span>
+      <span className="header__right-item flex-center">
+        <MdSettings />
+        <span>Settings</span>
+      </span>
+      <span className="header__right-item flex-center">
+        <GrPowerShutdown />
+        <span>Logout</span>
+      </span>
+    </div>
+  </header>
+);
 
 export default Header;

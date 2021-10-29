@@ -6,11 +6,10 @@ import ShortText from "../ShortText";
 // import Table from "../Table";
 import VideoUpload from "../VideoUpload";
 
-const SwitchComponent = ({ id, data, deployed, index, handler, children }) => {
-  // console.log("data", data);
+const SwitchComponent = ({ id, data, deployed, index, handler }) => {
   const name = data ? data.fieldName : id;
   return (
-    <div className="component-container">
+    <>
       {name === "short-text" && (
         <ShortText
           deployed={deployed}
@@ -51,8 +50,7 @@ const SwitchComponent = ({ id, data, deployed, index, handler, children }) => {
           data={data}
         />
       )}
-      {children}
-    </div>
+    </>
   );
 };
 

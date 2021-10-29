@@ -332,6 +332,12 @@ li {
 .edit-field__style-main {
   gap: 24px;
 }
+.edit-field__style-row, .edit-field__style-column {
+  height: 42px;
+  width: 120px;
+  border-radius: 5px;
+  padding: 0 25px;
+}
 .edit-field__style-row {
   flex-direction: row;
   gap: 8px;
@@ -340,6 +346,15 @@ li {
   width: 48px;
   height: 12px;
   background-color: #e5e5e5;
+}
+.edit-field__style-radio {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+.edit-field__style-radio:checked + div {
+  background: rgba(251, 239, 164, 0.3);
+  border: 1px solid #f6da2b;
 }
 .edit-field__footer {
   height: 78px;
@@ -484,6 +499,7 @@ li {
   border-bottom: 1px solid #e5e5e5;
 }
 .right-sidebar__item {
+  position: relative;
   font-size: 13px;
   line-height: 16px;
   gap: 12px;
@@ -506,10 +522,20 @@ li {
 }
 .right-sidebar__dragged-component, .right-sidebar__dragged-component--invisible {
   position: absolute;
-  z-index: 2;
+  z-index: -5;
+  opacity: 1;
+  right: 0;
+  rotate: -10deg;
 }
 .right-sidebar__dragged-component--invisible {
-  display: none;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 5;
+  cursor: pointer;
 }
 
 .component-container {

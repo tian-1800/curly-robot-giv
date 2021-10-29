@@ -57,6 +57,7 @@
   }
 
   &__item {
+    position: relative;
     font-size: 13px;
     line-height: 16px;
     gap: 12px;
@@ -80,11 +81,21 @@
 
   &__dragged-component {
     position: absolute;
-    z-index: 2;
+    z-index: -5;
+    opacity: 1;
+    right: 0;
+    rotate: -10deg;
 
     &--invisible {
       @extend .right-sidebar__dragged-component;
-      display: none;
+      position: absolute;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      z-index: 5;
+      cursor: pointer;
     }
   }
 }

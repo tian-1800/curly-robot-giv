@@ -29,7 +29,7 @@ const TextDropdown = ({ data, type, deployed, index, handler }) => {
       {title ? (
         <h4 className="text-dropdown__title">{title} :</h4>
       ) : (
-        <h4 className="text-dropdown__title--invisible">.</h4>
+        deployed && <h4 className="text-dropdown__title--invisible">.</h4>
       )}
       <div className={`input-group ${type} flex-center`}>
         <img src={component.icon} alt="icon" />

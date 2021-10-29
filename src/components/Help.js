@@ -2,10 +2,10 @@ import React from "react";
 import helpIcon from "../images/icon-help.svg";
 
 const Help = () => (
-  <div className="help flex-center">
+  <button type="button" className="help flex-center">
     <img src={helpIcon} alt="" />
     <span className="help__text">Help</span>
-  </div>
+  </button>
 );
 
 export default Help;

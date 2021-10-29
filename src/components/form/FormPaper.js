@@ -106,6 +106,14 @@ const FormPaper = () => {
     setShowAddMenu(true);
   };
 
+  const hideModal = (e) => {
+    if (e.target.id === "modal") {
+      setShowFieldMenu(false);
+      if (showAddMenu) setShowAddMenu(false);
+      console.log(e.target.id);
+    }
+  };
+
   return (
     <div className="form-paper">
       <div className="form-paper__header-background">
@@ -146,7 +154,7 @@ const FormPaper = () => {
           <p className="form-paper__dropzone-text"> Drop here to add section</p>
         </section>
         {showFieldMenu === "text" && (
-          <ModalContainer onClick={() => setShowFieldMenu(false)}>
+          <ModalContainer onClick={hideModal}>
             <MenuTextDropdown
               type={typeToEdit}
               del={deleteField}
@@ -157,7 +165,7 @@ const FormPaper = () => {
           </ModalContainer>
         )}
         {showFieldMenu === "upload" && (
-          <ModalContainer onClick={() => setShowFieldMenu(false)}>
+          <ModalContainer onClick={hideModal}>
             <MenuUpload type={typeToEdit} del={deleteField} pointer={pointer} />
           </ModalContainer>
         )}
@@ -169,7 +177,7 @@ const FormPaper = () => {
         )}
 
         {showAddMenu && (
-          <ModalContainer onClick={() => setShowFieldMenu(false)}>
+          <ModalContainer onClick={hideModal}>
             <AddField setField={setField} pointer={pointer} />
           </ModalContainer>
         )}
